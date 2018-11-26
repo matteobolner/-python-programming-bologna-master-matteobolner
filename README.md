@@ -1,2 +1,2 @@
-# python-programming-matteobolner
+# python-programming-matteo-bolner
 Repository for the "Programming for bioinformatics" course
