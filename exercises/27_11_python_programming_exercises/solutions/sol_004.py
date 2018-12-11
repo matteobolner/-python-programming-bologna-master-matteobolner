@@ -11,23 +11,13 @@
 #	final_list += numbr
 #print(final_list[1::])
 #3
-#import re
-#string_to_extract = "23|64|354|-123"
-#fixed_string = []
-#for element in string_to_extract:
-#	if element.isdigit():
-#		fixed_string +=element
-#finalstring = list(fixed_string)
-#print(fixed_string)
+'''
+string_to_extract = "23|64|354|-123"
+string_extracted = string_to_extract.split("|")
+print(string_extracted)'''
 #4
-#da finire
-#mixed_string = "-1-987-6823-8261"
-#mixed_string_list = list(mixed_string)
-#for element in mixed_string_list :
-#	if element == "-" :
-#5
-future_string = [3.14,6.333,98.12,23.1]
-present_string = ()
-for element in future_string :
-	present_string += 
-print(present_string)
+s = "-1-987-6823-8261"
+u=s.split("-")
+for i in u:
+	k=list(i)
+	
