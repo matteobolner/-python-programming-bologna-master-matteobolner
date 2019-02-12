@@ -1,0 +1,65 @@
+'''we have :	-the model =>	-transition probability from each state to each state
+							-emission probability for every character from every state
+			-the sequence
+
+we want :	-the path with the maximum joint probability
+
+
+PSEUDOCODE:
+1)define four STATES : BEG,Y,N,END
+2) initialization of TRANSITION probabilities
+	define transition probabilities with dictionaries:	BEG, Y, N => outgoing prob. => to Y or N, also to END for Y and N
+														
+3) initialize EMISSION probabilities with two dictionaries => Y,N => to (A,T,C,G)
+4) initialize the string SEQUENCE => input
+
+5) function VITERBI_PATH with arguments SEQUENCE, TRANSITION, EMISSION, STATES:
+	5a) initialization:
+		-matrix V full of 0 and of dimension M*N where:
+			-M number of states
+			-N length of sequence + 2 (BEG and END)
+			-V[0][0] = 1.0 #probability of obtaining sequence at time 0 is equal to 1 in begin state and 0 in all others
+			-for row in range(1,M-1):
+				-V[row][1] = V[0][0]*TRANSITION[BEG][STATES[row]]*EMISSION[STATES[row]]SEQUENCE[0]
+		-matrix PATH of dimension (M-2) * 1
+	5b) iteration:
+		-for every column("col") in the range from 2 to N-1:
+			for every row("row") in the range from 1 to M-1:
+			
+				-initialize the empty list SCORES
+				
+				-for every state("state") in range from 1 to M-1:
+					SCORE =V[state][col-1]*TRANSITION[STATES[state]]STATES[row]
+					append SCORE to list SCORES
+					
+				-find max between the two values stored in SCORES:
+					initialize MAX_SCORE (-inf) and MAX_STATE(empty string)
+					-for index in range from 0 to length of SCORES(it's 2):
+						if SCORES(index) > MAX_SCORE:
+							MAX_SCORE = SCORES(index)
+							MAX_STATE = STATES[index+1]
+					
+				-V[row][col] = MAX_SCORE*EMISSION[STATES[row]SEQUENCE[col-1]	
+				-append MAX_STATE to PATH[row-1]
+				
+	5c) termination:
+		initialize variable FINAL_SCORE of value (-inf) and BEST_PATH=""
+		for every row in the range from 1 to M-1:
+			if V[row][N-2]*TRANSITION[STATES[row]][END] > FINAL_SCORE:
+				-substitute FINAL_SCORE and V[M-1][N-1] with the value
+				-append to PATH[row-1] the value of STATES[row]
+				-update BEST_PATH with all the joined elements of PATH(row-1)
+	RETURN(BEST_PATH)
+
+
+to obtain the viterbi path, call VITERBI_PATH with the given arguments and print the BEST_PATH variable 							
+							
+							
+							
+							
+							
+							
+							
+						
+				
+				
