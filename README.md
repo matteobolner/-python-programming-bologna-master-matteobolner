@@ -7,4 +7,4 @@ Contents of this repository :
 
 -Exercises  : collection of some exercises from class
 
--Final_exam, midterm_exam etc: scripts written for the final and midterm exam; will be grouped together once they have been corrected
+-Exams : exam assignments
