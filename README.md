@@ -1,4 +1,4 @@
-# python-programming-matteo-bolner
+# python-programming
 Repository for the "Programming for bioinformatics" course
 
 Contents of this repository : 
